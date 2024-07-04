@@ -1,0 +1,100 @@
+#+title: Desenv. Web Seguro
+#+subtitle: Apresentação da Disciplina e do Plano de Ensino
+#+author: Jefferson O. Andrade
+#+email: jefferson.andrade@ifes.edu.br
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_VERSION: 4
+#+REVEAL_THEME: league
+#+REVEAL_TRANS: slide
+#+REVEAL_ACADEMIC_TITLE: Prof. Dr.
+#+REVEAL_TITLE_SLIDE:<h1>%t</h1><h2>%s</h2><h3>%a</h3>
+#+OPTIONS: reveal_klipsify_src:nil
+#+OPTIONS: timestamp:nil num:nil reveal_width:"80%"
+#+options: toc:nil _:{} ^:{}
+
+
+* Boas-Vindas e Apresentação
+
+- Bem-vindos à primeira aula de Desenvolvimento Web Seguro!
+- Apresentação do Professor: Jefferson O. Andrade
+  - Professor de ensino superior desde 1996.
+  - Experiência em segurança de desenvolvimento web.
+  - Certificações em Oracle, Microsoft e Java.
+
+
+* Objetivos da Disciplina
+
+- Compreender os princípios fundamentais da segurança de aplicativos web.
+- Identificar e mitigar vulnerabilidades comuns.
+- Implementar práticas de autenticação e autorização seguras.
+- Configurar e manter comunicações seguras.
+- Desenvolver uma mentalidade defensiva ao escrever código.
+
+
+* Metodologia
+
+- *Sala de Aula Invertida:*
+  - Os alunos serão incentivados a revisar o material antes das aulas.
+  - As aulas síncronas serão focadas em discussões, resolução de problemas e
+    práticas.
+
+
+* Estrutura do Curso
+
+- *Semana 1:* Introdução à Segurança de Desenvolvimento Web
+  - Discussão sobre ameaças e vulnerabilidades comuns.
+
+- *Semana 2:* Autenticação e Autorização
+  - Resolução de problemas e estudos de caso.
+
+- *Semana 3:* XSS e CSRF
+  - Discussão e prática de prevenção.
+
+- *Semana 4:* Injeção de SQL e Gerenciamento de Sessão Segura
+  - Revisão dos exercícios e boas práticas.
+
+#+REVEAL: split
+
+- *Semana 5:* Comunicação Segura (SSL/TLS)
+  - Demonstração e discussão de melhores práticas.
+
+- *Semana 6:* Headers de Segurança e CSP
+  - Implementação e configuração prática.
+
+- *Semana 7:* Upload e Download de Arquivos Seguros
+  - Discussão e prática de técnicas.
+
+- *Semana 8:* Práticas de Codificação Segura
+  - Revisão dos conceitos e feedback sobre projetos.
+
+
+* Avaliação:
+- Participação nas discussões e atividades síncronas: 30%
+- Tarefas práticas e projetos individuais: 50%
+- Exame final online: 20%
+
+
+* Bibliografia
+
+** Básica
+- LI, Vickie. Bug Bounty Bootcamp.
+- SEITZ, Justin; ARNOLD, Tim; MILLER, Charles Alfred. Black Hat Python.
+- STUTTARD, Dafydd; PINTO, Marcus. The Web Application Hacker’s Handbook.
+
+** Complementar
+- BALL, Corey. Hacking APIs.
+- HOFFMAN, Andrew. Web Application Security.
+- HOPE, Paco; WALTHER, Ben. Web Security Testing Cookbook.
+- OWASP FOUNDATION. OWASP Top Ten.
+- YAWORSKI, Peter. Real-World Bug Hunting.
+
+
+* Dúvidas?
+
+- Fique à vontade para perguntar qualquer coisa!
+
+
+* Obrigado!
+
+- Aguardamos ansiosamente pelo seu engajamento na disciplina de Desenvolvimento
+  Web Seguro!

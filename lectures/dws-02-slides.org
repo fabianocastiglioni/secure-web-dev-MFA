@@ -1,0 +1,305 @@
+#+TITLE: Desenv. Web Seguro
+#+SUBTITLE: Semana 2 -- Autenticação e Autorização
+#+AUTHOR: Jefferson O. Andrade
+#+EMAIL: jefferson.andrade@ifes.edu.br
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_VERSION: 4
+#+REVEAL_THEME: league
+#+REVEAL_TRANS: slide
+#+REVEAL_ACADEMIC_TITLE: Prof. Dr.
+#+REVEAL_TITLE_SLIDE:<h1>%t</h1><h2>%s</h2><h3>%a</h3>
+#+OPTIONS: reveal_klipsify_src:nil
+#+OPTIONS: timestamp:nil num:nil reveal_width:"80%"
+#+options: toc:nil _:{} ^:{}
+
+* Objetivos da Aula
+- Compreender os diferentes métodos de autenticação e autorização.
+- Identificar e resolver problemas comuns relacionados à autenticação e
+  autorização.
+- Analisar estudos de caso para entender a aplicação prática de métodos seguros
+  de autenticação e autorização.
+
+* Introdução
+- Importância da autenticação e autorização em segurança de aplicações web.
+
+** Importância da Autenticação e Autorização
+
+- Autenticação e autorização são componentes críticos na segurança de aplicações
+  web.
+
+** Proteção de Dados Sensíveis
+
+- A autenticação garante que apenas usuários autorizados possam acessar
+  informações sensíveis.
+- Sem autenticação adequada, dados podem ser acessados por indivíduos não
+  autorizados, levando a vazamentos de informações.
+
+** Prevenção de Acesso Não Autorizado
+
+- A autorização assegura que usuários autenticados só possam realizar ações
+  permitidas.
+- Impede que usuários com permissões limitadas acessem ou modifiquem recursos
+  críticos do sistema.
+
+** Redução de Riscos de Ataques
+
+- Implementações fracas de autenticação e autorização são alvos comuns de
+  ataques cibernéticos.
+- Métodos robustos de autenticação, como MFA, e modelos de autorização bem
+  definidos, como RBAC, ajudam a mitigar esses riscos.
+
+** Conformidade com Regulamentações
+
+- Regulamentações de proteção de dados, como [[https://gdpr-info.eu/][GDPR]] e [[https://www.gov.br/esporte/pt-br/acesso-a-informacao/lgpd][LGPD]], exigem medidas
+  adequadas de autenticação e autorização.
+- Conformidade com essas regulamentações é crucial para evitar penalidades
+  legais e manter a confiança dos clientes.
+
+** Manutenção da Integridade do Sistema
+
+- Autenticação e autorização protegem a integridade do sistema.
+- Garantem que apenas usuários legítimos possam realizar ações que afetam o
+  funcionamento e a segurança da aplicação.
+
+* Autenticação e Autorização
+- Definições e diferenças entre autenticação e autorização
+
+** Definição de Autenticação
+- Processo de verificar a identidade de um usuário ou sistema.
+- Confirma que o usuário é quem ele afirma ser.
+- Métodos comuns: nome de usuário e senha, biometria, autenticação multifator (MFA).
+
+** Definição de Autorização
+- Processo de conceder permissão para acessar recursos ou realizar ações.
+- Determina o que um usuário autenticado pode fazer.
+- Métodos comuns: RBAC (Controle de Acesso Baseado em Funções), ABAC (Controle
+  de Acesso Baseado em Atributos).
+
+** Diferenças Entre Autenticação e Autorização
+
+*** Propósito
+- **Autenticação:** Verifica a identidade do usuário.
+- **Autorização:** Controla o acesso a recursos e ações.
+
+*** Etapas do Processo
+- **Autenticação:** Ocorre primeiro, verificando a identidade.
+- **Autorização:** Ocorre após a autenticação, determinando permissões.
+
+*** Métodos Comuns
+- **Autenticação:** Nome de usuário e senha, tokens, biometria, MFA.
+- **Autorização:** RBAC, ABAC, listas de controle de acesso (ACLs).
+
+*** Papel na Segurança
+- **Autenticação:** Protege contra acesso não autorizado.
+- **Autorização:** Protege recursos e funcionalidades do sistema.
+
+** Exemplo Prático
+
+*** Autenticação
+- Usuário faz login com nome de usuário e senha.
+- Sistema verifica as credenciais para confirmar a identidade.
+
+*** Autorização
+- Sistema verifica as permissões do usuário após o login.
+- Usuário comum acessa seu perfil; administrador acessa funções adicionais.
+
+* Métodos Comuns de Autenticação
+- Senhas
+- Tokens
+- Biometria
+- MFA (Autenticação Multifator)
+- Autenticação Baseada em Certificados
+- Autenticação OAuth/OpenID Connect
+
+** Nome de Usuário e Senha
+- **Descrição:** Usuários fornecem um nome de usuário e uma senha para acessar
+  um sistema.
+- **Vantagens:** Simples e fácil de implementar.
+- **Desvantagens:** Vulnerável a ataques de força bruta, phishing e reutilização
+  de senhas.
+
+** Tokens de Autenticação
+- **Descrição:** Tokens gerados pelo servidor são usados para autenticar
+  solicitações subsequentes.
+- **Tipos Comuns:** JWT (JSON Web Tokens), tokens de sessão.
+- **Vantagens:** Reduz a exposição das credenciais do usuário.
+- **Desvantagens:** Necessita de mecanismos seguros para geração, armazenamento
+  e invalidação de tokens.
+
+** Biometria
+- **Descrição:** Usa características físicas ou comportamentais únicas, como
+  impressões digitais ou reconhecimento facial.
+- **Vantagens:** Difícil de falsificar, elimina a necessidade de senhas.
+- **Desvantagens:** Pode ser invasivo em termos de privacidade, requer hardware
+  especializado.
+
+** Autenticação Multifator (MFA)
+- **Descrição:** Combina dois ou mais métodos de autenticação (senha, token,
+  biometria).
+- **Vantagens:** Significativamente mais seguro que métodos de autenticação de
+  fator único.
+- **Desvantagens:** Pode ser mais complexo e caro de implementar, pode causar
+  inconveniência ao usuário.
+
+** Autenticação Baseada em Certificados
+- **Descrição:** Usa certificados digitais emitidos por uma Autoridade
+  Certificadora (CA) confiável.
+- **Vantagens:** Alta segurança, pode autenticar dispositivos além de usuários.
+- **Desvantagens:** Requer uma infraestrutura de gerenciamento de certificados
+  (PKI).
+
+** Autenticação OAuth/OpenID Connect
+- **Descrição:** Permite autenticação usando contas de terceiros (Google,
+  Facebook).
+- **Vantagens:** Conveniente para usuários, reduz a necessidade de gerenciar
+  múltiplas senhas.
+- **Desvantagens:** Depende da segurança e disponibilidade do provedor de
+  identidade terceiro.
+
+* Mecanismos de Autorização
+- Controle de Acesso Baseado em Funções (RBAC)
+- Controle de Acesso Baseado em Atributos (ABAC)
+
+** Controle de Acesso Baseado em Funções (RBAC)
+
+*** Definição
+- RBAC é um modelo de controle de acesso onde as permissões são atribuídas a
+  funções específicas dentro da organização.
+- Usuários são atribuídos a essas funções, herdando as permissões associadas.
+
+*** Características Principais
+- **Funções:** Conjunto de permissões associadas a uma função (ex.:
+  administrador, editor).
+- **Permissões:** Ações que podem ser realizadas no sistema (ex.: ler,
+  escrever).
+- **Usuários:** Atribuídos a uma ou mais funções.
+
+*** Vantagens
+- **Facilidade de Gerenciamento:** Simplifica a administração de permissões.
+- **Escalabilidade:** Facilita a adição de novos usuários e permissões.
+- **Segurança:** Reduz erros na atribuição de permissões.
+
+*** Desvantagens
+- **Rigidez:** Pode ser inflexível em cenários dinâmicos.
+- **Manutenção:** Requer atualização constante das funções e permissões.
+
+** Controle de Acesso Baseado em Atributos (ABAC)
+
+*** Definição
+- ABAC é um modelo de controle de acesso onde as permissões são baseadas em
+  atributos e políticas que determinam as condições de acesso.
+- Atributos podem ser do usuário, recurso ou ambiente.
+
+*** Características Principais
+- **Atributos:** Características do usuário, recurso ou ambiente (ex.: função,
+  tipo de documento, horário).
+- **Políticas:** Regras que definem as condições de acesso com base em
+  atributos.
+- **Decisões de Acesso:** Feitas em tempo real com base na avaliação de
+  atributos e políticas.
+
+*** Vantagens
+- **Flexibilidade:** Controle de acesso granular e adaptável.
+- **Segurança:** Implementação de políticas complexas para decisões precisas.
+- **Personalização:** Acesso personalizado com base em múltiplos atributos.
+
+*** Desvantagens
+- **Complexidade:** Implementação e gestão mais complexas.
+- **Desempenho:** Avaliação em tempo real pode impactar o desempenho.
+
+* Estudos de Caso
+- Análise de estudos de caso reais
+- Discussão sobre falhas na autenticação e autorização
+- Como esses problemas poderiam ter sido evitados
+
+** Caso Target (2013)
+- **Descrição:** Comprometimento de informações de cartão de crédito e débito de
+  40 milhões de clientes.
+- **Problema:** Uso de credenciais de um fornecedor para acessar a rede da
+  Target devido a falhas de autorização.
+- **Consequências:** Perda financeira, dano à reputação e custos legais
+  elevados.
+- **Lições Aprendidas:** Implementação de MFA e segmentação de rede.
+
+** Caso Uber (2016)
+- **Descrição:** Exposição de informações pessoais de 57 milhões de motoristas e
+  passageiros.
+- **Problema:** Acesso a base de dados na AWS usando credenciais expostas no
+  GitHub.
+- **Consequências:** Pagamento de US$ 148 milhões em acordo judicial, danos à
+  reputação.
+- **Lições Aprendidas:** Gerenciamento seguro de credenciais e MFA para acessar
+  recursos sensíveis.
+
+** Caso Equifax (2017)
+- **Descrição:** Exposição de informações pessoais de 147 milhões de pessoas.
+- **Problema:** Falha de autorização em um portal web, falta de segmentação e
+  controles adequados.
+- **Consequências:** Multas significativas, perda de confiança do consumidor,
+  altos custos de mitigação.
+- **Lições Aprendidas:** Controles de autorização robustos e segmentação de
+  rede.
+
+** Caso Facebook (2018)
+- **Descrição:** Violação que afetou cerca de 50 milhões de contas de usuários.
+- **Problema:** Falha no sistema de autenticação que permitiu roubo de tokens de
+  acesso.
+- **Consequências:** Exposição de informações pessoais, investigações
+  regulatórias, danos à reputação.
+- **Lições Aprendidas:** Revisão e fortalecimento dos mecanismos de
+  autenticação, monitoramento contínuo.
+
+** Caso Twitter (2020)
+- **Descrição:** Comprometimento de várias contas de alto perfil.
+- **Problema:** Engenharia social contra funcionários do Twitter para obter
+  credenciais.
+- **Consequências:** Controle temporário de contas de alto perfil, divulgação de
+  mensagens fraudulentas, investigação governamental.
+- **Lições Aprendidas:** Educação sobre engenharia social, implementação de MFA
+  para acessos administrativos.
+
+* Atividade Prática
+- Resolução de problemas comuns de autenticação e autorização
+- Implementação de um sistema simples de autenticação e autorização
+
+** Objetivo da Atividade
+- Aplicar os conceitos de autenticação e autorização discutidos na aula.
+- Desenvolver habilidades práticas na implementação de sistemas de autenticação
+  e autorização.
+
+** Instruções Detalhadas
+
+*** Parte 1: Resolução de Problemas
+1. **Identificação de Vulnerabilidades:**
+   - Analise um código de exemplo fornecido e identifique potenciais falhas de
+     autenticação e autorização.
+2. **Correção das Vulnerabilidades:**
+   - Discuta correções para as vulnerabilidades identificadas, seguindo as
+     melhores práticas discutidas na aula.
+
+*** Parte 2: Implementação
+1. **Configuração do Ambiente:**
+   - Configure um ambiente de desenvolvimento usando uma linguagem de
+     programação e framework de sua escolha.
+2. **Autenticação:**
+   - Implemente um sistema de login básico (usuário/senha).
+   - Adicione autenticação multifator (MFA) para.
+3. **Autorização:**
+   - Crie diferentes níveis de permissão (por exemplo, usuário comum,
+     administrador).
+   - Implemente controles de acesso para restringir ações baseadas nas
+     permissões do usuário.
+
+** Exemplo de Cenário
+- **Cenário:** Desenvolver um sistema de gerenciamento de tarefas.
+  - **Funcionalidades:** Usuários podem criar contas, fazer login e gerenciar
+    suas tarefas. Administradores podem gerenciar usuários e visualizar todas as
+    tarefas.
+  - **Requisitos de Segurança:** Implementar autenticação com MFA, garantir que
+    apenas usuários autenticados possam gerenciar suas tarefas, e que apenas
+    administradores possam acessar a área de gerenciamento de usuários.
+
+* Conclusão e Próximos Passos
+- Recapitulação dos pontos chave da aula
+- Introdução ao conteúdo da próxima aula
+- Tarefas pós-aula: leitura recomendada e exercícios para praticar

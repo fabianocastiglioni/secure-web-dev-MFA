@@ -1,0 +1,52 @@
+#+title: Desenvolvimento Web Seguro -- Plano de Aula
+#+subtitle: Semana 1 -- Introdução à Segurança de Desenvolvimento Web
+#+author: Prof. Jefferson O. Andrade
+#+date: 2024-05-08
+#+options: toc:nil _:{} ^:{}
+#+setupfile: ~/Sync/org/lecture-notes.setup
+
+* Objetivos da Aula:
+- Introduzir os alunos aos conceitos básicos de segurança de desenvolvimento
+  web.
+- Identificar as principais ameaças e vulnerabilidades enfrentadas pelos
+  aplicativos web.
+- Contextualizar a importância da segurança no desenvolvimento de aplicativos
+  web.
+
+* Plano de Ensino:
+
+** 1. Boas-Vindas e Apresentação (15 minutos):
+- Receba os alunos e introduza o curso e seu conteúdo.
+- Apresente-se brevemente e explique sua experiência em segurança de
+  desenvolvimento web.
+
+** 2. Discussão sobre Segurança de Aplicativos Web (30 minutos):
+- Defina o que é segurança de desenvolvimento web e por que é importante.
+- Identifique as principais ameaças e vulnerabilidades enfrentadas pelos
+  aplicativos web (por exemplo, XSS, CSRF, injeção de SQL).
+- Explique como as vulnerabilidades podem ser exploradas por invasores e os
+  possíveis impactos para os usuários e para a organização.
+
+** 3. Princípios de Segurança de Desenvolvimento Web (30 minutos):
+- Introduza os princípios fundamentais de segurança de desenvolvimento web, como
+  autenticação, autorização, validação de entrada e saída, e gerenciamento de
+  sessão.
+- Discuta a importância de implementar práticas de codificação seguras desde o
+  início do desenvolvimento de um aplicativo web.
+
+** 4. Exemplos Práticos e Estudos de Caso (30 minutos):
+- Apresente exemplos práticos de vulnerabilidades em aplicativos web e discuta
+  como essas vulnerabilidades podem ser exploradas.
+- Analise estudos de caso de ataques bem-sucedidos a aplicativos web e as lições
+  aprendidas com esses incidentes.
+
+** 5. Encerramento e Próximos Passos (15 minutos):
+- Recapitule os principais pontos abordados na aula.
+- Forneça uma visão geral do que será coberto nas próximas aulas e incentive os
+  alunos a se prepararem para as próximas atividades.
+
+* Recursos Necessários:
+- Slides ou material de apresentação para guiar a aula.
+- Exemplos de código ou casos reais para ilustrar os conceitos discutidos.
+- Acesso à plataforma de videoconferência (por exemplo, Google Meet) para
+  ministrar a aula síncrona.

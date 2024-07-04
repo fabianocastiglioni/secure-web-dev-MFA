@@ -1,0 +1,171 @@
+% Created 2024-05-15 qua 18:34
+% Intended LaTeX compiler: lualatex
+\documentclass{scrartcl}
+\usepackage[cm]{fullpage}
+\usepackage{mathtools}
+\usepackage{fvextra}
+\usepackage{fancyvrb}
+\usepackage{amsmath}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{listings}
+\usepackage{fixltx2e}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\setmainfont[SmallCapsFont={Linux Libertine Capitals}]{Linux Libertine O}
+\setsansfont[SmallCapsFont={Linux Biolinum Capitals}]{Linux Biolinum O}
+\setmonofont{Source Code Pro}
+\DefineVerbatimEnvironment{verbatim}{Verbatim}{fontsize=\small,formatcom={\color[rgb]{0.5,0,0}},breaklines=true}
+\input{/home/jefferson/Sync/tex/custom-listings}
+
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{fvextra}
+\fvset{breakbefore=(}
+\usepackage{syntax}
+\setsansfont{DejaVu Sans}
+\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
+\author{Prof. Jefferson O. Andrade}
+\date{2024-05-15}
+\title{Desenvolvimento Web Seguro\\\medskip
+\large Semana 02 -- Atividade Prática}
+\hypersetup{
+ pdfauthor={Prof. Jefferson O. Andrade},
+ pdftitle={Desenvolvimento Web Seguro},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.2 (Org mode 9.6.15)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Parte 1 -- Resolução de Problemas}
+\label{sec:orgffb1bf7}
+
+\subsection{Instruções}
+\label{sec:org3332097}
+
+Seu grupo deve analisar a aplicação de exemplo, identificar possíveis
+vulnerabilidades e discutir possíveis soluções.
+
+\subsubsection{Identificação de Vulnerabilidades:}
+\label{sec:org9024aab}
+\begin{itemize}
+\item Analisar onde e como as senhas são armazenadas no banco de dados.
+\item Verificar as rotas e funções que controlam o acesso às funcionalidades da
+aplicação.
+\end{itemize}
+
+\subsubsection{Correção das Vulnerabilidades:}
+\label{sec:org5c3595d}
+\begin{itemize}
+\item Implementar hashing seguro de senhas usando werkzeug.security (ou outra
+biblioteca de hashing).
+\item Melhorar o controle de acesso, garantindo que apenas usuários autorizados
+possam acessar determinadas funcionalidades.
+\end{itemize}
+
+
+\subsection{Configuração do Ambiente}
+\label{sec:org813c669}
+
+\subsubsection{Instalar Python e pip}
+\label{sec:org1cd979d}
+\begin{itemize}
+\item Certifique-se de que você tenha o Python e o pip instalados no seu sistema.
+Você pode baixar o Python \href{https://www.python.org/downloads/}{aqui}.
+\end{itemize}
+
+\subsubsection{Clone o repositório do Codeberg}
+\label{sec:org120b940}
+\begin{enumerate}
+\item Acesse o \href{https://codeberg.org/profjeffandrade/secure-web-dev}{repositório da disciplina} no \texttt{Codeberg.org}.
+\item Clone o repositório em algum local adequado no seu computador local:
+\begin{lstlisting}[language=shell,label= ,caption= ,captionpos=b,numbers=none]
+git clone https://codeberg.org/profjeffandrade/secure-web-dev.git
+\end{lstlisting}
+\item Vamos chamar o diretório onde o você clonou o repositório de \texttt{\$SWD}.
+\end{enumerate}
+
+\subsubsection{Criar e Ativar um Ambiente Virtual}
+\label{sec:orga5263e8}
+\begin{enumerate}
+\item Navegue até o diretório \texttt{\$SWD/tasks}.
+\item Execute os comandos abaixo:
+\begin{lstlisting}[language=shell,label= ,caption= ,captionpos=b,numbers=none]
+python -m venv venv
+source venv/bin/activate  # No Windows, use `venv\Scripts\activate`
+\end{lstlisting}
+\end{enumerate}
+
+\subsubsection{Instalar Flask e Werkzeug}
+\label{sec:org7305874}
+\begin{itemize}
+\item Execute o comando abaixo:
+\begin{lstlisting}[language=shell,label= ,caption= ,captionpos=b,numbers=none]
+pip install Flask Werkzeug
+\end{lstlisting}
+\end{itemize}
+
+\subsubsection{Inicializar o banco de dados.}
+\label{sec:orgac167dc}
+\begin{itemize}
+\item O banco de dados de exemplo (\texttt{example.db}) é iniciado com o usuário \texttt{admin}
+(senha \texttt{admin123}). Se precisar apagar o banco de dados e reiniciá-lo, execute
+o comando abaixo uma vez:
+\begin{lstlisting}[language=shell,label= ,caption= ,captionpos=b,numbers=none]
+python app.py
+\end{lstlisting}
+\end{itemize}
+
+\subsubsection{Rodar a Aplicação:}
+\label{sec:org9b8bd6e}
+\begin{itemize}
+\item Após inicializar o banco de dados, você pode rodar a aplicação com:
+\begin{lstlisting}[language=shell,label= ,caption= ,captionpos=b,numbers=none]
+flask run
+\end{lstlisting}
+\end{itemize}
+
+\subsubsection{Acessar a Aplicação}
+\label{sec:org95ee108}
+\begin{itemize}
+\item Abra um navegador e vá para \url{http://127.0.0.1:5000/login} para acessar a
+aplicação.
+\end{itemize}
+
+
+\section{Parte 2 -- Implementação}
+\label{sec:org16fc0f0}
+
+Para a parte 2, seu grupo deverá desenvolver uma aplicação web simples seguindo
+as indicações abaixo:
+
+\begin{enumerate}
+\item \textbf{\textbf{Configuração do Ambiente:}}
+\begin{itemize}
+\item Configure um ambiente de desenvolvimento usando uma linguagem de
+programação e framework de sua escolha (por exemplo, Python com Flask, ou
+JavaScript com Node.js).
+\end{itemize}
+\item \textbf{\textbf{Autenticação:}}
+\begin{itemize}
+\item Implemente um sistema de login básico utilizando nome de usuário e senha.
+\item Adicione a funcionalidade de autenticação multifator (MFA) para maior segurança.
+\end{itemize}
+\item \textbf{\textbf{Autorização:}}
+\begin{itemize}
+\item Crie diferentes níveis de permissão (por exemplo, usuário comum,
+administrador).
+\item Implemente controles de acesso para restringir ações baseadas nas
+permissões do usuário.
+\end{itemize}
+\end{enumerate}
+\end{document}

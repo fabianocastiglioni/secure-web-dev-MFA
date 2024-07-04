@@ -1,0 +1,80 @@
+#+title: Desenvolvimento Web Seguro
+#+subtitle: Plano de Ensino
+#+author: Prof. Dr. Jefferson O. Andrade
+#+date: 2024/1
+#+options: toc:nil _:{} ^:{}
+#+setupfile: ~/Sync/org/default-notes.setup
+#+cite_export: biblatex abnt
+#+bibliography: ~/Library/my-library-biblatex.bib
+
+* Descrição do Curso:
+O curso de Desenvolvimento Web Seguro visa fornecer aos alunos uma compreensão
+abrangente das práticas e técnicas necessárias para desenvolver aplicativos web
+seguros. Os alunos aprenderão sobre as ameaças mais comuns enfrentadas pelos
+aplicativos web, bem como as melhores práticas para mitigar essas ameaças. O
+curso incluirá uma combinação de pré-leituras, atividades práticas e discussões
+em tempo real durante as aulas síncronas.
+
+* Objetivos
+- Compreender os princípios fundamentais da segurança de aplicativos web.
+- Identificar e mitigar vulnerabilidades comuns em aplicativos web, como XSS,
+  CSRF e injeção de SQL.
+- Implementar práticas de autenticação e autorização seguras.
+- Configurar e manter comunicações seguras entre clientes e servidores.
+- Desenvolver e implementar uma mentalidade defensiva ao escrever código para
+  aplicativos web.
+
+* Estrutura do Curso
+
+** Semana 1: Introdução à Segurança de Desenvolvimento Web
+- Pré-aula: Leitura de material sobre segurança de aplicativos web
+- Aula Síncrona: Discussão sobre as ameaças e vulnerabilidades mais comuns
+
+** Semana 2: Autenticação e Autorização
+- Pré-aula: Assista a vídeos sobre métodos de autenticação e autorização
+- Aula Síncrona: Resolução de problemas e estudos de caso sobre autenticação e
+  autorização
+
+** Semana 3: Cross-Site Scripting (XSS) e Cross-Site Request Forgery (CSRF)
+- Pré-aula: Estudo de casos de XSS e CSRF
+- Aula Síncrona: Discussão e prática de prevenção de XSS e CSRF
+
+** Semana 4: Injeção de SQL e Gerenciamento de Sessão Segura
+- Pré-aula: Exercícios de injeção de SQL e práticas de gerenciamento de sessão
+- Aula Síncrona: Revisão dos exercícios e discussão de boas práticas
+
+** Semana 5: Comunicação Segura (SSL/TLS)
+- Pré-aula: Material sobre SSL/TLS e HTTPS
+- Aula Síncrona: Demonstração de configuração de SSL/TLS e discussão de melhores
+  práticas
+
+** Semana 6: Headers de Segurança e Política de Segurança de Conteúdo (CSP)
+- Pré-aula: Leitura sobre headers de segurança e CSP
+- Aula Síncrona: Implementação e configuração prática de CSP
+
+** Semana 7: Upload e Download de Arquivos Seguros
+- Pré-aula: Tutoriais sobre segurança de upload e download de arquivos
+- Aula Síncrona: Discussão e prática de técnicas de segurança
+
+** Semana 8: Práticas de Codificação Segura
+- Pré-aula: Revisão de código e identificação de vulnerabilidades
+- Aula Síncrona: Revisão dos conceitos e feedback sobre projetos individuais
+
+* Avaliação
+- Participação nas discussões e atividades síncronas: 30%
+- Tarefas práticas e projetos individuais: 50%
+- Exame final online: 20%
+
+* Bibliografia
+
+[[nocite:owasp.top10.2021,li2021,yaworski2019,ball2022,hoffman2020,seitz2021,stuttard2011,hope2008]]
+
+#+print_bibliography: :heading subbibliography :title "Bibliografia Básica" :keyword secure-web-dev:2024:bib:main
+
+#+print_bibliography: :heading subbibliography :title "Bibliografia Complementar" :keyword secure-web-dev:2024:bib:aux
+
+
+* Observação
+Este plano de ensino está sujeito a ajustes conforme necessário para atender às
+necessidades dos alunos e garantir uma experiência de aprendizado eficaz em um
+ambiente de sala de aula invertida.

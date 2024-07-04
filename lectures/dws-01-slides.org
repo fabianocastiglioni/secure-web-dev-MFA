@@ -1,0 +1,207 @@
+#+TITLE: Desenv. Web Seguro
+#+SUBTITLE: Introdução Desenvolvimento Web Seguro
+#+AUTHOR: Jefferson O. Andrade
+#+EMAIL: jefferson.andrade@ifes.edu.br
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_VERSION: 4
+#+REVEAL_THEME: league
+#+REVEAL_TRANS: slide
+#+REVEAL_ACADEMIC_TITLE: Prof. Dr.
+#+REVEAL_TITLE_SLIDE:<h1>%t</h1><h2>%s</h2><h3>%a</h3>
+#+OPTIONS: reveal_klipsify_src:nil
+#+OPTIONS: timestamp:nil num:nil reveal_width:"80%"
+#+options: toc:nil _:{} ^:{}
+
+* Objetivos da Aula
+
+- Introduzir os conceitos básicos de desenvolvimento web seguro.
+- Identificar as principais ameaças e vulnerabilidades em aplicativos web.
+- Compreender a importância da segurança no desenvolvimento web.
+
+
+* Plano de Aula
+
+- Discussão sobre Segurança de Aplicativos Web
+- Princípios de Desenvolvimento Web Seguro
+- Os 10 Maiores Riscos de Segurança em Aplicações Web
+- Exemplos Práticos e Estudos de Caso
+- Encerramento e Próximos Passos
+
+
+* Segurança de Aplicativos Web
+
+- O que é desenvolvimento web seguro?
+- Quais são as principais ameaças e vulnerabilidades enfrentadas pelos
+  aplicativos web?
+- Como as vulnerabilidades podem ser exploradas por invasores?
+
+
+** O que é desenvolvimento web seguro?
+
+*Desenvolvimento web seguro (DWS)* é uma disciplina que se concentra em proteger os
+aplicativos e sistemas web contra ameaças, ataques e vulnerabilidades que possam
+comprometer a segurança dos dados e a integridade do sistema.
+
+#+REVEAL: split
+
+*DWS* envolve a implementação de práticas, técnicas e medidas de segurança
+durante o ciclo de vida do desenvolvimento de software, desde o planejamento e a
+concepção até a implantação e a manutenção.
+
+
+* Princípios de Desenvolvimento Web Seguro
+
+- Autenticação e autorização
+- Proteção contra injeção de código
+- Validação de entrada de dados
+- Gerenciamento de sessão
+- Configuração segura do servidor
+- Auditoria e monitoramento
+
+*** Autenticação e autorização
+Garantir que os usuários sejam quem dizem ser e que tenham permissões
+adequadas para acessar recursos específicos dentro do sistema.
+
+*** Proteção contra injeção de código
+Prevenir ataques de injeção de código, como injeção de SQL e injeção de
+scripts, que podem permitir que um invasor execute comandos maliciosos no
+sistema.
+
+*** Validação de entrada de dados
+Garantir que os dados fornecidos pelos usuários sejam válidos e seguros,
+prevenindo assim ataques de XSS (Cross-Site Scripting) e CSRF (Cross-Site
+Request Forgery), entre outros.
+
+*** Gerenciamento de sessão
+Manter a segurança das sessões de usuário, protegendo-as contra roubo de
+sessão e outras formas de ataques de sessão.
+
+*** Configuração segura do servidor
+Garantir que o servidor web e outros componentes do sistema estejam
+configurados de maneira segura e adequada para minimizar as
+vulnerabilidades.
+
+*** Auditoria e monitoramento
+Implementar ferramentas e práticas para auditar e monitorar o sistema em
+busca de atividades suspeitas e anomalias de segurança.
+
+
+* Os 10 Maiores Riscos ([[https://owasp.org/www-project-top-ten/][OWASP Top Ten]])
+
+- A01:2021 -- Broken Access Control
+- A02:2021 -- Cryptographic Failures
+- A03:2021 -- Injection
+- A04:2021 -- Insecure Design
+- A05:2021 -- Security Misconfiguration
+- A06:2021 -- Vulnerable and Outdated Components
+- A07:2021 -- Identification and Authentication Failures
+- A08:2021 -- Software and Data Integrity Failures
+- A09:2021 -- Security Logging and Monitoring Failures
+- A10:2021 -- Server-Side Request Forgery
+
+** A01:2021 - Broken Access Control
+
+- Falhas na implementação de controle de acesso, permitindo acesso não
+  autorizado a recursos protegidos.
+
+- Permite exploração de falhas na implementação de controle de acesso para
+  acessar recursos não autorizados, como URLs restritas ou dados confidenciais.
+
+** A02:2021 - Cryptographic Failures
+
+- Falhas na implementação de criptografia, levando à exposição de dados
+  sensíveis ou comprometimento do sistema.
+
+- Permite exploração de falhas na criptografia para interceptar comunicações,
+  decifrar senhas ou manipular dados sensíveis.
+
+** A03:2021 - Injection
+
+- Vulnerabilidades que permitem a inserção de código malicioso em campos de
+  entrada, como SQL injection e XSS.
+
+- Permite inserção de código malicioso em campos de entrada para executar
+  comandos no banco de dados (SQL injection) ou no navegador do usuário (XSS).
+
+** A04:2021 - Insecure Design
+
+- Riscos relacionados a falhas de design que tornam os sistemas suscetíveis a
+  ataques.
+
+- Explorado pela identificação de falhas de design para explorar brechas de
+  segurança, como acesso não autorizado a áreas do sistema ou manipulação de
+  funcionalidades.
+
+** A05:2021 - Security Misconfiguration
+
+- Configurações inadequadas de segurança que deixam o sistema vulnerável a
+  ataques.
+
+- Explorado pela identificação de configurações inadequadas para acessar
+  informações sensíveis, como arquivos de configuração não protegidos ou
+  servidores mal configurados.
+
+** A06:2021 - Vulnerable and Outdated Components
+
+- Uso de componentes desatualizados ou com vulnerabilidades conhecidas que podem
+  ser exploradas por invasores.
+
+- Permite exploração de vulnerabilidades conhecidas em componentes
+  desatualizados ou com falhas de segurança para acessar o sistema ou
+  comprometer os dados.
+
+** A07:2021 - Identification and Authentication Failures
+
+- Falhas no processo de identificação e autenticação, permitindo acesso não
+  autorizado a contas de usuário.
+
+- Permite acesso não autorizado a contas de usuário, explorando falhas na
+  autenticação, como senhas fracas ou tokens de sessão vulneráveis.
+
+** A08:2021 - Software and Data Integrity Failures
+
+- Falhas na garantia da integridade dos dados e do software, permitindo
+  alterações não autorizadas ou corrupção de dados.
+
+- Manipulação de dados ou software para alterar informações sensíveis ou
+  comprometer a integridade do sistema.
+
+** A09:2021 - Security Logging and Monitoring Failures
+
+- Falhas na implementação de logs de segurança e monitoramento, dificultando a
+  detecção de atividades suspeitas.
+
+- Realização de atividades maliciosas sem ser detectado devido à falta de
+  registros ou monitoramento adequado das atividades do sistema.
+
+** A10:2021 - Server-Side Request Forgery
+
+- Vulnerabilidades que permitem que um invasor faça solicitações para outros
+  sistemas a partir do servidor, explorando a confiança indevida em solicitações
+  internas.
+
+- Exploração de falhas que permitem a um invasor fazer solicitações de servidor
+  para servidor, como acessar informações confidenciais ou explorar
+  vulnerabilidades em sistemas internos.
+
+
+* Exemplos Práticos e Estudos de Caso
+
+- Demonstração de vulnerabilidades em aplicativos web.
+- Análise de estudos de caso de ataques bem-sucedidos.
+
+# * Encerramento e Próximos Passos
+
+# - Recapitulação dos principais pontos da aula.
+# - Visão geral do conteúdo das próximas aulas.
+# - Preparação para as atividades seguintes.
+
+
+* Dúvidas?
+
+- Estou à disposição para responder às suas perguntas!
+
+
+* Obrigado!
+
+- Obrigado por participar da aula de hoje. Nos vemos na próxima semana!

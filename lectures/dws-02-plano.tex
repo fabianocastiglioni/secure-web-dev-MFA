@@ -1,0 +1,140 @@
+% Created 2024-05-15 qua 12:00
+% Intended LaTeX compiler: lualatex
+\documentclass{scrartcl}
+\usepackage[cm]{fullpage}
+\usepackage{mathtools}
+\usepackage{fvextra}
+\usepackage{fancyvrb}
+\usepackage{amsmath}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{listings}
+\usepackage{fixltx2e}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\setmainfont[SmallCapsFont={Linux Libertine Capitals}]{Linux Libertine O}
+\setsansfont[SmallCapsFont={Linux Biolinum Capitals}]{Linux Biolinum O}
+\setmonofont{Source Code Pro}
+\DefineVerbatimEnvironment{verbatim}{Verbatim}{fontsize=\small,formatcom={\color[rgb]{0.5,0,0}},breaklines=true}
+\input{/home/jefferson/Sync/tex/custom-listings}
+
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{fvextra}
+\fvset{breakbefore=(}
+\usepackage{syntax}
+\setsansfont{DejaVu Sans}
+\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
+\author{Prof. Jefferson O. Andrade}
+\date{\textit{[2024-05-15 qua]}}
+\title{Desenvolvimento Web Seguro -- Plano de Aula\\\medskip
+\large Semana 2 -- Autenticação e Autorização}
+\hypersetup{
+ pdfauthor={Prof. Jefferson O. Andrade},
+ pdftitle={Desenvolvimento Web Seguro -- Plano de Aula},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.2 (Org mode 9.6.15)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\section{Objetivos da Aula}
+\label{sec:org5dab1b6}
+\begin{itemize}
+\item Compreender os diferentes métodos de autenticação e autorização.
+\item Identificar e resolver problemas comuns relacionados à autenticação e
+autorização.
+\item Analisar estudos de caso para entender a aplicação prática de métodos seguros
+de autenticação e autorização.
+\end{itemize}
+
+\section{Estrutura da Aula}
+\label{sec:org68e3f16}
+
+\begin{enumerate}
+\item \textbf{\textbf{Introdução (5 minutos)}}
+\begin{itemize}
+\item Breve introdução sobre a importância da autenticação e autorização em
+segurança de aplicações web.
+\end{itemize}
+
+\item \textbf{\textbf{Apresentações dos Grupos (40-60 minutos)}}
+\begin{itemize}
+\item \textbf{\textbf{A02:2021 - Cryptographic Failures (10-15 minutos)}}
+\begin{itemize}
+\item Apresentação por Murilo e Rafael.
+\end{itemize}
+\item \textbf{\textbf{A03:2021 - Injection (10-15 minutos)}}
+\begin{itemize}
+\item Apresentação por Marcio e Ana.
+\end{itemize}
+\item \textbf{\textbf{A07:2021 - Identification and Authentication Failures (10-15 minutos)}}
+\begin{itemize}
+\item Apresentação por Anderson e Hericca.
+\end{itemize}
+\item \textbf{\textbf{A10:2021 - Server-Side Request Forgery (10-15 minutos)}}
+\begin{itemize}
+\item Apresentação por Felipe, Fabrício e Carlos.
+\end{itemize}
+\end{itemize}
+
+\item \textbf{\textbf{Discussão sobre Apresentações (10 minutos)}}
+\begin{itemize}
+\item Perguntas e respostas.
+\item Feedback sobre as apresentações.
+\end{itemize}
+
+\item \textbf{\textbf{Autenticação e Autorização: Conceitos Básicos (20 minutos)}}
+\begin{itemize}
+\item Definições e diferenças entre autenticação e autorização.
+\item Métodos comuns de autenticação (senhas, tokens, biometria, MFA).
+\item Mecanismos de autorização
+\begin{itemize}
+\item Controle de acesso baseado em funções (RBAC -- \emph{Rule Based Access
+Control})
+\item Controle de acesso baseado em atributos (ABAC -- \emph{Attribute Based Access
+Control})
+\end{itemize}
+\end{itemize}
+
+\item \textbf{\textbf{Estudos de Caso (20 minutos)}}
+\begin{itemize}
+\item Análise de estudos de caso reais onde falhas na autenticação e autorização
+levaram a violações de segurança.
+\item Discussão sobre como esses problemas poderiam ter sido evitados.
+\end{itemize}
+
+\item \textbf{\textbf{Atividade Prática (30 minutos)}}
+\begin{itemize}
+\item Resolução de problemas comuns relacionados à autenticação e autorização.
+\item Implementação de um sistema simples de autenticação e autorização em um
+ambiente de desenvolvimento (exemplo prático).
+\end{itemize}
+
+\item \textbf{\textbf{Conclusão e Próximos Passos (10 minutos)}}
+\begin{itemize}
+\item Recapitulação dos pontos chave da aula.
+\item Introdução ao conteúdo da próxima aula.
+\item Tarefas pós-aula: Leitura recomendada e exercícios para praticar.
+\end{itemize}
+\end{enumerate}
+
+
+\section{Recursos Necessários:}
+\label{sec:orga485983}
+\begin{itemize}
+\item Slides de apresentação.
+\item Exemplos de código para a atividade prática.
+\item Links para vídeos e leituras recomendadas.
+\item Acesso à plataforma de videoconferência (Google Meet) para ministrar a aula
+síncrona.
+\end{itemize}
+\end{document}

@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Desenv. Web Seguro</title>
+<meta name="author" content="Jefferson O. Andrade"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/league.css" id="theme"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1>Desenv. Web Seguro</h1><h2>Semana 2 &#x2013; Autenticação e Autorização</h2><h3>Jefferson O. Andrade</h3>
+</section>
+
+<section>
+<section id="slide-orgaeb3745">
+<h2 id="orgaeb3745">Objetivos da Aula</h2>
+<ul>
+<li>Compreender os diferentes métodos de autenticação e autorização.</li>
+<li>Identificar e resolver problemas comuns relacionados à autenticação e
+autorização.</li>
+<li>Analisar estudos de caso para entender a aplicação prática de métodos seguros
+de autenticação e autorização.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd2d162e">
+<h2 id="orgd2d162e">Introdução</h2>
+<ul>
+<li>Importância da autenticação e autorização em segurança de aplicações web.</li>
+
+</ul>
+
+</section>
+<section id="slide-org5ba487b">
+<h3 id="org5ba487b">Importância da Autenticação e Autorização</h3>
+<ul>
+<li>Autenticação e autorização são componentes críticos na segurança de aplicações
+web.</li>
+
+</ul>
+
+</section>
+<section id="slide-org5c09ed4">
+<h3 id="org5c09ed4">Proteção de Dados Sensíveis</h3>
+<ul>
+<li>A autenticação garante que apenas usuários autorizados possam acessar
+informações sensíveis.</li>
+<li>Sem autenticação adequada, dados podem ser acessados por indivíduos não
+autorizados, levando a vazamentos de informações.</li>
+
+</ul>
+
+</section>
+<section id="slide-org3fc1345">
+<h3 id="org3fc1345">Prevenção de Acesso Não Autorizado</h3>
+<ul>
+<li>A autorização assegura que usuários autenticados só possam realizar ações
+permitidas.</li>
+<li>Impede que usuários com permissões limitadas acessem ou modifiquem recursos
+críticos do sistema.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgbf18521">
+<h3 id="orgbf18521">Redução de Riscos de Ataques</h3>
+<ul>
+<li>Implementações fracas de autenticação e autorização são alvos comuns de
+ataques cibernéticos.</li>
+<li>Métodos robustos de autenticação, como MFA, e modelos de autorização bem
+definidos, como RBAC, ajudam a mitigar esses riscos.</li>
+
+</ul>
+
+</section>
+<section id="slide-org5a74916">
+<h3 id="org5a74916">Conformidade com Regulamentações</h3>
+<ul>
+<li>Regulamentações de proteção de dados, como <a href="https://gdpr-info.eu/">GDPR</a> e <a href="https://www.gov.br/esporte/pt-br/acesso-a-informacao/lgpd">LGPD</a>, exigem medidas
+adequadas de autenticação e autorização.</li>
+<li>Conformidade com essas regulamentações é crucial para evitar penalidades
+legais e manter a confiança dos clientes.</li>
+
+</ul>
+
+</section>
+<section id="slide-org3a76379">
+<h3 id="org3a76379">Manutenção da Integridade do Sistema</h3>
+<ul>
+<li>Autenticação e autorização protegem a integridade do sistema.</li>
+<li>Garantem que apenas usuários legítimos possam realizar ações que afetam o
+funcionamento e a segurança da aplicação.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgfd176cf">
+<h2 id="orgfd176cf">Autenticação e Autorização</h2>
+<ul>
+<li>Definições e diferenças entre autenticação e autorização</li>
+
+</ul>
+
+</section>
+<section id="slide-org07f97fd">
+<h3 id="org07f97fd">Definição de Autenticação</h3>
+<ul>
+<li>Processo de verificar a identidade de um usuário ou sistema.</li>
+<li>Confirma que o usuário é quem ele afirma ser.</li>
+<li>Métodos comuns: nome de usuário e senha, biometria, autenticação multifator (MFA).</li>
+
+</ul>
+
+</section>
+<section id="slide-orgd7979b7">
+<h3 id="orgd7979b7">Definição de Autorização</h3>
+<ul>
+<li>Processo de conceder permissão para acessar recursos ou realizar ações.</li>
+<li>Determina o que um usuário autenticado pode fazer.</li>
+<li>Métodos comuns: RBAC (Controle de Acesso Baseado em Funções), ABAC (Controle
+de Acesso Baseado em Atributos).</li>
+
+</ul>
+
+</section>
+<section id="slide-org6b3d045">
+<h3 id="org6b3d045">Diferenças Entre Autenticação e Autorização</h3>
+<div class="outline-text-3" id="text-org6b3d045">
+</div>
+</section>
+<section id="slide-orgc485ff6">
+<h4 id="orgc485ff6">Propósito</h4>
+<ul>
+<li><b><b>Autenticação:</b></b> Verifica a identidade do usuário.</li>
+<li><b><b>Autorização:</b></b> Controla o acesso a recursos e ações.</li>
+
+</ul>
+
+</section>
+<section id="slide-org862a654">
+<h4 id="org862a654">Etapas do Processo</h4>
+<ul>
+<li><b><b>Autenticação:</b></b> Ocorre primeiro, verificando a identidade.</li>
+<li><b><b>Autorização:</b></b> Ocorre após a autenticação, determinando permissões.</li>
+
+</ul>
+
+</section>
+<section id="slide-org73e72ea">
+<h4 id="org73e72ea">Métodos Comuns</h4>
+<ul>
+<li><b><b>Autenticação:</b></b> Nome de usuário e senha, tokens, biometria, MFA.</li>
+<li><b><b>Autorização:</b></b> RBAC, ABAC, listas de controle de acesso (ACLs).</li>
+
+</ul>
+
+</section>
+<section id="slide-org89cbe5c">
+<h4 id="org89cbe5c">Papel na Segurança</h4>
+<ul>
+<li><b><b>Autenticação:</b></b> Protege contra acesso não autorizado.</li>
+<li><b><b>Autorização:</b></b> Protege recursos e funcionalidades do sistema.</li>
+
+</ul>
+
+</section>
+<section id="slide-org1170f08">
+<h3 id="org1170f08">Exemplo Prático</h3>
+<div class="outline-text-3" id="text-org1170f08">
+</div>
+</section>
+<section id="slide-org7392459">
+<h4 id="org7392459">Autenticação</h4>
+<ul>
+<li>Usuário faz login com nome de usuário e senha.</li>
+<li>Sistema verifica as credenciais para confirmar a identidade.</li>
+
+</ul>
+
+</section>
+<section id="slide-org0d72ff1">
+<h4 id="org0d72ff1">Autorização</h4>
+<ul>
+<li>Sistema verifica as permissões do usuário após o login.</li>
+<li>Usuário comum acessa seu perfil; administrador acessa funções adicionais.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb91ad6a">
+<h2 id="orgb91ad6a">Métodos Comuns de Autenticação</h2>
+<ul>
+<li>Senhas</li>
+<li>Tokens</li>
+<li>Biometria</li>
+<li>MFA (Autenticação Multifator)</li>
+<li>Autenticação Baseada em Certificados</li>
+<li>Autenticação OAuth/OpenID Connect</li>
+
+</ul>
+
+</section>
+<section id="slide-orgddc502f">
+<h3 id="orgddc502f">Nome de Usuário e Senha</h3>
+<ul>
+<li><b><b>Descrição:</b></b> Usuários fornecem um nome de usuário e uma senha para acessar
+um sistema.</li>
+<li><b><b>Vantagens:</b></b> Simples e fácil de implementar.</li>
+<li><b><b>Desvantagens:</b></b> Vulnerável a ataques de força bruta, phishing e reutilização
+de senhas.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgb0814be">
+<h3 id="orgb0814be">Tokens de Autenticação</h3>
+<ul>
+<li><b><b>Descrição:</b></b> Tokens gerados pelo servidor são usados para autenticar
+solicitações subsequentes.</li>
+<li><b><b>Tipos Comuns:</b></b> JWT (JSON Web Tokens), tokens de sessão.</li>
+<li><b><b>Vantagens:</b></b> Reduz a exposição das credenciais do usuário.</li>
+<li><b><b>Desvantagens:</b></b> Necessita de mecanismos seguros para geração, armazenamento
+e invalidação de tokens.</li>
+
+</ul>
+
+</section>
+<section id="slide-org7c56870">
+<h3 id="org7c56870">Biometria</h3>
+<ul>
+<li><b><b>Descrição:</b></b> Usa características físicas ou comportamentais únicas, como
+impressões digitais ou reconhecimento facial.</li>
+<li><b><b>Vantagens:</b></b> Difícil de falsificar, elimina a necessidade de senhas.</li>
+<li><b><b>Desvantagens:</b></b> Pode ser invasivo em termos de privacidade, requer hardware
+especializado.</li>
+
+</ul>
+
+</section>
+<section id="slide-org9744d81">
+<h3 id="org9744d81">Autenticação Multifator (MFA)</h3>
+<ul>
+<li><b><b>Descrição:</b></b> Combina dois ou mais métodos de autenticação (senha, token,
+biometria).</li>
+<li><b><b>Vantagens:</b></b> Significativamente mais seguro que métodos de autenticação de
+fator único.</li>
+<li><b><b>Desvantagens:</b></b> Pode ser mais complexo e caro de implementar, pode causar
+inconveniência ao usuário.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgc9f3854">
+<h3 id="orgc9f3854">Autenticação Baseada em Certificados</h3>
+<ul>
+<li><b><b>Descrição:</b></b> Usa certificados digitais emitidos por uma Autoridade
+Certificadora (CA) confiável.</li>
+<li><b><b>Vantagens:</b></b> Alta segurança, pode autenticar dispositivos além de usuários.</li>
+<li><b><b>Desvantagens:</b></b> Requer uma infraestrutura de gerenciamento de certificados
+(PKI).</li>
+
+</ul>
+
+</section>
+<section id="slide-org887f991">
+<h3 id="org887f991">Autenticação OAuth/OpenID Connect</h3>
+<ul>
+<li><b><b>Descrição:</b></b> Permite autenticação usando contas de terceiros (Google,
+Facebook).</li>
+<li><b><b>Vantagens:</b></b> Conveniente para usuários, reduz a necessidade de gerenciar
+múltiplas senhas.</li>
+<li><b><b>Desvantagens:</b></b> Depende da segurança e disponibilidade do provedor de
+identidade terceiro.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org65546f4">
+<h2 id="org65546f4">Mecanismos de Autorização</h2>
+<ul>
+<li>Controle de Acesso Baseado em Funções (RBAC)</li>
+<li>Controle de Acesso Baseado em Atributos (ABAC)</li>
+
+</ul>
+
+</section>
+<section id="slide-org18a30c6">
+<h3 id="org18a30c6">Controle de Acesso Baseado em Funções (RBAC)</h3>
+<div class="outline-text-3" id="text-org18a30c6">
+</div>
+</section>
+<section id="slide-orgd631c3a">
+<h4 id="orgd631c3a">Definição</h4>
+<ul>
+<li>RBAC é um modelo de controle de acesso onde as permissões são atribuídas a
+funções específicas dentro da organização.</li>
+<li>Usuários são atribuídos a essas funções, herdando as permissões associadas.</li>
+
+</ul>
+
+</section>
+<section id="slide-orga1368b4">
+<h4 id="orga1368b4">Características Principais</h4>
+<ul>
+<li><b><b>Funções:</b></b> Conjunto de permissões associadas a uma função (ex.:
+administrador, editor).</li>
+<li><b><b>Permissões:</b></b> Ações que podem ser realizadas no sistema (ex.: ler,
+escrever).</li>
+<li><b><b>Usuários:</b></b> Atribuídos a uma ou mais funções.</li>
+
+</ul>
+
+</section>
+<section id="slide-org7522d53">
+<h4 id="org7522d53">Vantagens</h4>
+<ul>
+<li><b><b>Facilidade de Gerenciamento:</b></b> Simplifica a administração de permissões.</li>
+<li><b><b>Escalabilidade:</b></b> Facilita a adição de novos usuários e permissões.</li>
+<li><b><b>Segurança:</b></b> Reduz erros na atribuição de permissões.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgdd99710">
+<h4 id="orgdd99710">Desvantagens</h4>
+<ul>
+<li><b><b>Rigidez:</b></b> Pode ser inflexível em cenários dinâmicos.</li>
+<li><b><b>Manutenção:</b></b> Requer atualização constante das funções e permissões.</li>
+
+</ul>
+
+</section>
+<section id="slide-org0c3617f">
+<h3 id="org0c3617f">Controle de Acesso Baseado em Atributos (ABAC)</h3>
+<div class="outline-text-3" id="text-org0c3617f">
+</div>
+</section>
+<section id="slide-org4f6711a">
+<h4 id="org4f6711a">Definição</h4>
+<ul>
+<li>ABAC é um modelo de controle de acesso onde as permissões são baseadas em
+atributos e políticas que determinam as condições de acesso.</li>
+<li>Atributos podem ser do usuário, recurso ou ambiente.</li>
+
+</ul>
+
+</section>
+<section id="slide-org31e8095">
+<h4 id="org31e8095">Características Principais</h4>
+<ul>
+<li><b><b>Atributos:</b></b> Características do usuário, recurso ou ambiente (ex.: função,
+tipo de documento, horário).</li>
+<li><b><b>Políticas:</b></b> Regras que definem as condições de acesso com base em
+atributos.</li>
+<li><b><b>Decisões de Acesso:</b></b> Feitas em tempo real com base na avaliação de
+atributos e políticas.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgd652239">
+<h4 id="orgd652239">Vantagens</h4>
+<ul>
+<li><b><b>Flexibilidade:</b></b> Controle de acesso granular e adaptável.</li>
+<li><b><b>Segurança:</b></b> Implementação de políticas complexas para decisões precisas.</li>
+<li><b><b>Personalização:</b></b> Acesso personalizado com base em múltiplos atributos.</li>
+
+</ul>
+
+</section>
+<section id="slide-orga28b64c">
+<h4 id="orga28b64c">Desvantagens</h4>
+<ul>
+<li><b><b>Complexidade:</b></b> Implementação e gestão mais complexas.</li>
+<li><b><b>Desempenho:</b></b> Avaliação em tempo real pode impactar o desempenho.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org57e5b7f">
+<h2 id="org57e5b7f">Estudos de Caso</h2>
+<ul>
+<li>Análise de estudos de caso reais</li>
+<li>Discussão sobre falhas na autenticação e autorização</li>
+<li>Como esses problemas poderiam ter sido evitados</li>
+
+</ul>
+
+</section>
+<section id="slide-org2ef2368">
+<h3 id="org2ef2368">Caso Target (2013)</h3>
+<ul>
+<li><b><b>Descrição:</b></b> Comprometimento de informações de cartão de crédito e débito de
+40 milhões de clientes.</li>
+<li><b><b>Problema:</b></b> Uso de credenciais de um fornecedor para acessar a rede da
+Target devido a falhas de autorização.</li>
+<li><b><b>Consequências:</b></b> Perda financeira, dano à reputação e custos legais
+elevados.</li>
+<li><b><b>Lições Aprendidas:</b></b> Implementação de MFA e segmentação de rede.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgcb964bc">
+<h3 id="orgcb964bc">Caso Uber (2016)</h3>
+<ul>
+<li><b><b>Descrição:</b></b> Exposição de informações pessoais de 57 milhões de motoristas e
+passageiros.</li>
+<li><b><b>Problema:</b></b> Acesso a base de dados na AWS usando credenciais expostas no
+GitHub.</li>
+<li><b><b>Consequências:</b></b> Pagamento de US$ 148 milhões em acordo judicial, danos à
+reputação.</li>
+<li><b><b>Lições Aprendidas:</b></b> Gerenciamento seguro de credenciais e MFA para acessar
+recursos sensíveis.</li>
+
+</ul>
+
+</section>
+<section id="slide-org417c1f2">
+<h3 id="org417c1f2">Caso Equifax (2017)</h3>
+<ul>
+<li><b><b>Descrição:</b></b> Exposição de informações pessoais de 147 milhões de pessoas.</li>
+<li><b><b>Problema:</b></b> Falha de autorização em um portal web, falta de segmentação e
+controles adequados.</li>
+<li><b><b>Consequências:</b></b> Multas significativas, perda de confiança do consumidor,
+altos custos de mitigação.</li>
+<li><b><b>Lições Aprendidas:</b></b> Controles de autorização robustos e segmentação de
+rede.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgcaddadd">
+<h3 id="orgcaddadd">Caso Facebook (2018)</h3>
+<ul>
+<li><b><b>Descrição:</b></b> Violação que afetou cerca de 50 milhões de contas de usuários.</li>
+<li><b><b>Problema:</b></b> Falha no sistema de autenticação que permitiu roubo de tokens de
+acesso.</li>
+<li><b><b>Consequências:</b></b> Exposição de informações pessoais, investigações
+regulatórias, danos à reputação.</li>
+<li><b><b>Lições Aprendidas:</b></b> Revisão e fortalecimento dos mecanismos de
+autenticação, monitoramento contínuo.</li>
+
+</ul>
+
+</section>
+<section id="slide-org1e5ca23">
+<h3 id="org1e5ca23">Caso Twitter (2020)</h3>
+<ul>
+<li><b><b>Descrição:</b></b> Comprometimento de várias contas de alto perfil.</li>
+<li><b><b>Problema:</b></b> Engenharia social contra funcionários do Twitter para obter
+credenciais.</li>
+<li><b><b>Consequências:</b></b> Controle temporário de contas de alto perfil, divulgação de
+mensagens fraudulentas, investigação governamental.</li>
+<li><b><b>Lições Aprendidas:</b></b> Educação sobre engenharia social, implementação de MFA
+para acessos administrativos.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org061eba8">
+<h2 id="org061eba8">Atividade Prática</h2>
+<ul>
+<li>Resolução de problemas comuns de autenticação e autorização</li>
+<li>Implementação de um sistema simples de autenticação e autorização</li>
+
+</ul>
+
+</section>
+<section id="slide-org3d8e07f">
+<h3 id="org3d8e07f">Objetivo da Atividade</h3>
+<ul>
+<li>Aplicar os conceitos de autenticação e autorização discutidos na aula.</li>
+<li>Desenvolver habilidades práticas na implementação de sistemas de autenticação
+e autorização.</li>
+
+</ul>
+
+</section>
+<section id="slide-org4922ac4">
+<h3 id="org4922ac4">Instruções Detalhadas</h3>
+<div class="outline-text-3" id="text-org4922ac4">
+</div>
+</section>
+<section id="slide-org55d7b56">
+<h4 id="org55d7b56">Parte 1: Resolução de Problemas</h4>
+<ol>
+<li><b><b>Identificação de Vulnerabilidades:</b></b>
+<ul>
+<li>Analise um código de exemplo fornecido e identifique potenciais falhas de
+autenticação e autorização.</li>
+
+</ul></li>
+<li><b><b>Correção das Vulnerabilidades:</b></b>
+<ul>
+<li>Discuta correções para as vulnerabilidades identificadas, seguindo as
+melhores práticas discutidas na aula.</li>
+
+</ul></li>
+
+</ol>
+
+</section>
+<section id="slide-org87db04f">
+<h4 id="org87db04f">Parte 2: Implementação</h4>
+<ol>
+<li><b><b>Configuração do Ambiente:</b></b>
+<ul>
+<li>Configure um ambiente de desenvolvimento usando uma linguagem de
+programação e framework de sua escolha.</li>
+
+</ul></li>
+<li><b><b>Autenticação:</b></b>
+<ul>
+<li>Implemente um sistema de login básico (usuário/senha).</li>
+<li>Adicione autenticação multifator (MFA) para.</li>
+
+</ul></li>
+<li><b><b>Autorização:</b></b>
+<ul>
+<li>Crie diferentes níveis de permissão (por exemplo, usuário comum,
+administrador).</li>
+<li>Implemente controles de acesso para restringir ações baseadas nas
+permissões do usuário.</li>
+
+</ul></li>
+
+</ol>
+
+</section>
+<section id="slide-orge25e235">
+<h3 id="orge25e235">Exemplo de Cenário</h3>
+<ul>
+<li><b><b>Cenário:</b></b> Desenvolver um sistema de gerenciamento de tarefas.
+<ul>
+<li><b><b>Funcionalidades:</b></b> Usuários podem criar contas, fazer login e gerenciar
+suas tarefas. Administradores podem gerenciar usuários e visualizar todas as
+tarefas.</li>
+<li><b><b>Requisitos de Segurança:</b></b> Implementar autenticação com MFA, garantir que
+apenas usuários autenticados possam gerenciar suas tarefas, e que apenas
+administradores possam acessar a área de gerenciamento de usuários.</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd669d1d">
+<h2 id="orgd669d1d">Conclusão e Próximos Passos</h2>
+<ul>
+<li>Recapitulação dos pontos chave da aula</li>
+<li>Introdução ao conteúdo da próxima aula</li>
+<li>Tarefas pós-aula: leitura recomendada e exercícios para praticar</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/search/search.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom/zoom.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: "80%",
+
+transition: 'slide',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealNotes, RevealSearch, RevealZoom ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+]
+
+});
+</script>
+</body>
+</html>

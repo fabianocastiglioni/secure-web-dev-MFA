@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Tasks</title>
+    </head>
+    <body>
+        <h1>Tasks</h1>
+        <ul>
+            {% for task in tasks %}
+            <li>{{ task[2] }}
+                <form method="POST" action="{{ url_for('delete_task', task_id=task[0]) }}" style="display:inline;">
+                    <button type="submit">Excluir</button>
+                </form>
+            </li>
+            
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('add') }}">Add Task</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+        {% if session.get('role') == 'admin' %}
+        <a href="{{ url_for('admin') }}">Admin</a>
+        {% endif %}
+    </body>
+</html>

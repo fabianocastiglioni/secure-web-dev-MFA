@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Add Task</title>
+    </head>
+    <body>
+        <h1>Add Task</h1>
+        <form method="post">
+            <label for="task">Task:</label>
+            <input type="text" id="task" name="task">
+            <br>
+            <button type="submit">Add</button>
+        </form>
+        <a href="{{ url_for('index') }}">Back</a>
+    </body>
+</html>
